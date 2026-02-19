@@ -22,14 +22,12 @@ import senderbot.configuration.BotConfiguration;
 public class TelegarmSender extends AbilityBot {
     @Value("${ru.wallentos.sender-bot.admin-list}")
     public List<String> adminList;
-    private long senderChatId;
     @Autowired
     private CacheService cacheService;
 
     protected TelegarmSender(BotConfiguration botConfiguration) {
         super(botConfiguration.getKey(), botConfiguration.getName());
         log.info("BOT INITIALIZATION! ");
-        senderChatId = botConfiguration.getChatId();
     }
 
     @Override

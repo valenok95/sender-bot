@@ -1,7 +1,6 @@
 bot:
   name: ${BOT_NAME}
   key: ${BOT_KEY}
-  chatId: ${CHAT_ID}
 
 ru:
   wallentos:
