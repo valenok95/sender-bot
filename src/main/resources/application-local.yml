@@ -1,0 +1,6 @@
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6472
+      timeout: '60000'

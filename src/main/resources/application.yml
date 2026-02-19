@@ -1,0 +1,12 @@
+bot:
+  name: ${BOT_NAME}
+  key: ${BOT_KEY}
+  chatId: ${CHAT_ID}
+
+ru:
+  wallentos:
+    sender-bot:
+      update-posts-cron: ${UPDATE_CRON}
+      minus-cash-correction: ${CASH_CORRECTION}
+      minus-swift-correction: ${SWIFT_CORRECTION}
+      admin-list: ${ADMIN_LIST}
