@@ -28,15 +28,15 @@ public class TestController {
     }
 
     @CrossOrigin
-    @PostMapping("naver-rate-cash")
-    public int getCashRate() {
-        return restService.getCashRate();
+    @PostMapping("naver-rate")
+    public int getSwiftRate() {
+        return restService.getNaverRate();
     }
 
     @CrossOrigin
-    @PostMapping("upbit-rate-swift")
-    public int getSwiftRate() {
-        return restService.getSwiftRate();
+    @PostMapping("upbit-rate")
+    public int getCashRate() {
+        return restService.getUpBitRate();
     }
 
 }
