@@ -3,6 +3,7 @@ package senderbot.services;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,6 @@ public class SenderService {
                         🟢 SWIFT %d
                         Обновлено: %s
                         """, cashRate, swiftRate,
-                LocalDateTime.now(ZoneId.of("Europe/Moscow")).format(DateTimeFormatter.ofPattern("dd MMMM в HH:mm")));
-
+                LocalDateTime.now(ZoneId.of("Europe/Moscow")).format(DateTimeFormatter.ofPattern("dd MMMM в HH:mm").localizedBy(Locale.forLanguageTag("ru"))));
     }
 }
