@@ -96,14 +96,14 @@ public class TelegarmSender extends AbilityBot {
                         silent.send("Доступ к функционалу ограничен", ctx.chatId());
                         return;
                     }
-
+                    
                     String[] args = ctx.arguments();
                     if (args.length < 1) {
-                        silent.send("❌ Использование: /updatepost <новый текст>", ctx.chatId());
+                        silent.send("❌ Использование: /upgradepost <новый текст>", ctx.chatId());
                         return;
                     }
-                    String newText = args[0];
-                    updatePosts(newText);
+                    String text = String.join(" ", args);
+                    updatePosts(text);
                 })
                 .build();
     }
