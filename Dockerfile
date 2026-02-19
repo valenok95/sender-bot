@@ -4,7 +4,7 @@ WORKDIR /home/gradle/src
 
 RUN gradle clean bootJar
 
-FROM openjdk:21-jdk-slim AS prod
+FROM openjdk:21-ea-20-slim AS prod
 WORKDIR /app
 ENV JVM_OPTS=-Xmx256g
 
