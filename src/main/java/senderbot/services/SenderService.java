@@ -29,13 +29,13 @@ public class SenderService {
     private RestService restService;
 
     @Autowired
-    private TelegarmSender telegarmSender;
+    private TelegramSender telegramSender;
 
     /**
      * Обновить сообщение по всем чатам.
      */
     public void updatePosts(String newText) {
-        telegarmSender.updatePosts(newText);
+        telegramSender.updatePosts(newText);
     }
 
     /**
@@ -46,7 +46,7 @@ public class SenderService {
         int swiftRate = restService.getNaverRate() - minusSwiftCorrection;
 
         String preparedMessage = prepareMessage(cashRate, swiftRate);
-        telegarmSender.updatePosts(preparedMessage);
+        telegramSender.updatePosts(preparedMessage);
 
     }
 

@@ -13,7 +13,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 @Slf4j
 public class BotInitializer {
     @Autowired
-    TelegarmSender bot;
+    TelegramSender bot;
 
     @EventListener({ContextRefreshedEvent.class})
     public void init() throws TelegramApiException {

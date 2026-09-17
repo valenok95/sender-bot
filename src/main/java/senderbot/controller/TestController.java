@@ -1,7 +1,10 @@
 package senderbot.controller;
 
+import java.math.BigDecimal;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,6 +50,12 @@ public class TestController {
     @PostMapping("upbit-rate")
     public int getCashRate() {
         return restService.getUpBitRate();
+    }
+   
+    @CrossOrigin
+    @GetMapping("cbr-usd-rate")
+    public Map<String, BigDecimal> getCbrRate() {
+        return restService.getCbrRates();
     }
 
 }

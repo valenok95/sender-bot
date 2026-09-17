@@ -19,13 +19,13 @@ import senderbot.configuration.BotConfiguration;
 
 @Service
 @Slf4j
-public class TelegarmSender extends AbilityBot {
+public class TelegramSender extends AbilityBot {
     @Value("${ru.wallentos.sender-bot.admin-list}")
     public List<String> adminList;
     @Autowired
     private CacheService cacheService;
 
-    protected TelegarmSender(BotConfiguration botConfiguration) {
+    protected TelegramSender(BotConfiguration botConfiguration) {
         super(botConfiguration.getKey(), botConfiguration.getName());
         log.info("BOT INITIALIZATION! ");
     }
@@ -99,7 +99,7 @@ public class TelegarmSender extends AbilityBot {
                     
                     String[] args = ctx.arguments();
                     if (args.length < 1) {
-                        silent.send("❌ Использование: /upgradepost <новый текст>", ctx.chatId());
+                        silent.send("❌ Использование: /updatepost <новый текст>", ctx.chatId());
                         return;
                     }
                     String text = String.join(" ", args);
