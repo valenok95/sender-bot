@@ -42,8 +42,12 @@ public class SenderService {
      * Процесс обновления постов.
      */
     public void updateRatesProcess() {
-        int cashRate = restService.getUpBitRate() - minusCashCorrection;
-        int swiftRate = restService.getNaverRate() - minusSwiftCorrection;
+        int upbitRate = restService.getUpBitRate();
+        int cashRate = upbitRate - minusCashCorrection;
+        log.info("CASH rate: {} - {} = {}", upbitRate, minusCashCorrection, cashRate);
+        int naverRate = restService.getNaverRate();
+        int swiftRate = naverRate - minusSwiftCorrection;
+        log.info("SWIFT rate: {} - {} = {}", naverRate, minusSwiftCorrection, swiftRate);
 
         String preparedMessage = prepareMessage(cashRate, swiftRate);
         telegramSender.updatePosts(preparedMessage);
