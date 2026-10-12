@@ -5,7 +5,6 @@ import static org.telegram.abilitybots.api.objects.Privacy.PUBLIC;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -97,7 +96,7 @@ public class TelegramSender extends AbilityBot {
                         silent.send("Доступ к функционалу ограничен", ctx.chatId());
                         return;
                     }
-
+                    
                     String[] args = ctx.arguments();
                     if (args.length < 1) {
                         silent.send("❌ Использование: /updatepost <новый текст>", ctx.chatId());
@@ -118,16 +117,7 @@ public class TelegramSender extends AbilityBot {
                     .messageId(entry.getValue().intValue())
                     .text(newText)
                     .build();
-            try {
-                silent.execute(updateMessage);
-            } catch (Exception e) {
-                log.error("Произошло исключение с сообщением: {}, чат будет удален из рассылки",
-                        e.getMessage());
-                if (Objects.nonNull(e.getMessage()) &&
-                        e.getMessage().contains("chat not found")) {
-                    cacheService.deleteByChatId(entry.getKey());
-                }
-            }
+            silent.execute(updateMessage);
             log.info("Обновлено сообщение в чате {} с айдишником {} , новый текст: {}",
                     entry.getKey(), entry.getValue(), newText);
         }
